@@ -28,5 +28,11 @@ go.work.sum
 .env
 
 # Editor/IDE
-# .idea/
-# .vscode/
+.idea/
+.vscode/
+
+# Wails default
+build/bin
+node_modules
+frontend/dist
+
