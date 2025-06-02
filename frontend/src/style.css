@@ -55,42 +55,57 @@
     background-color: var(--snow);
   }
   .overlay {
-      position: absolute;
-      width: 0;
-      height: 100%;
-      z-index: 1;
-      top:0;
-      left:0;
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
-      overflow-x : hidden;
-      background: var(--blue);
+    position: absolute;
+    width: 0;
+    height: 100%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    overflow-x: hidden;
+    background: var(--snow);
+    transition: width 0.3s ease-in-out;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   }
-  .overlay span, .overlay-content span {
-    color: black;
-    font-size: 30px;
-    font-weight: 500;
-    padding: 5px;
-}
+  .overlay .closeBtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .overlay .closeBtn:hover {
+    transform: scale(1.1);
+  }
+  .overlay span {
+    color: var(--navy);
+    font-size: 24px;
+  }
   .overlay-content {
-      width: 100%;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: var(--snow);
-  }
-  .overlay-content span {
-      font-size: 25px;
+    margin-top: 60px;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
   .row {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      font-size: 0.7em;
-      margin: 5px;
-      color: black;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    color: var(--navy);
+    font-size: 0.9em;
+    border-radius: 10px;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .row:hover {
+    background-color: var(--faded-blue);
+  }
+  .row span {
+    font-size: 20px;
   }
   .cover {
     height: 50%;
@@ -340,5 +355,31 @@
   
   .search-input::placeholder {
     color: var(--grey);
+  }
+  
+  .songs-container {
+    max-height: calc(3 * 60px); /* Assuming each song row is 60px high */
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+  
+  .songs-container::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .songs-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .songs-container::-webkit-scrollbar-thumb {
+    background-color: rgba(155, 155, 155, 0.5);
+    border-radius: 20px;
+  }
+  
+  .song-row.header {
+    position: sticky;
+    top: 0;
+    background: var(--background-color);
+    z-index: 1;
   }
   

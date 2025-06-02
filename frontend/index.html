@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Lite Music Player</title>
-    <link rel="stylesheet" href="src/style.css"/>
+    <!-- <link rel="stylesheet" href="../frontend/src/style.css"/> -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
@@ -20,6 +20,10 @@
                 <div class="row">
                     <span class="material-icons">save_alt</span>
                     downloads
+                </div>
+                <div class="row">
+                    <span class="material-icons">settings</span>
+                    settings
                 </div>
             </div>
         </div>
@@ -40,17 +44,16 @@
         <div class="song-list">
             <div class="search-container">
                 <span class="material-icons search-icon">search</span>
-                <input type="text" class="search-input" placeholder="Search for music...">
+                <input type="search" class="search-input" placeholder="Search for music..." onkeyup="handleSearchKeyUp(event)">
             </div>
-            <div class="song-row">
+            <div class="song-row header">
                 <h>popular</h>
                 <p>show all</p>
             </div>
-            <div class="song-row">
-                <h1>Kalimba</h1> <span>--:--</span>
+            <div class="songs-container">
             </div>
-            </div>
-            <div class="fixed-bottom"><span class="material-icons" id="expand" onclick="hideShow()">
+        </div>
+        <div class="fixed-bottom"><span class="material-icons" id="expand" onclick="hideShow()">
                 keyboard_arrow_up
             </span>
         </div>
