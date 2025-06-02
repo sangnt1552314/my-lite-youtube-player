@@ -1,6 +1,6 @@
 # My Lite YouTube Music
 
-A lightweight desktop application for YouTube Music built with Wails and modern web technologies. This application provides a native desktop experience for YouTube Music with additional features and optimizations.
+A lightweight desktop application for YouTube Music built with Wails. This application provides a native desktop experience for YouTube Music with additional features and optimizations.
 
 ## Features
 
