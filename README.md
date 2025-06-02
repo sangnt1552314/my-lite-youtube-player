@@ -1,19 +1,64 @@
-# README
+# My Lite YouTube Music
 
-## About
+A lightweight desktop application for YouTube Music built with Wails and modern web technologies. This application provides a native desktop experience for YouTube Music with additional features and optimizations.
 
-This is the official Wails Vanilla template.
+## Features
 
-You can configure the project by editing `wails.json`. More information about the project settings can be found
-here: https://wails.io/docs/reference/project-config
+- Native desktop application for YouTube Music
+- Lightweight and fast performance
+- System tray integration
+- Media key support
+- Minimal resource usage
+- Cross-platform support (macOS, Windows, Linux)
 
-## Live Development
+## Prerequisites
 
-To run in live development mode, run `wails dev` in the project directory. This will run a Vite development
-server that will provide very fast hot reload of your frontend changes. If you want to develop in a browser
-and have access to your Go methods, there is also a dev server that runs on http://localhost:34115. Connect
-to this in your browser, and you can call your Go code from devtools.
+- Go 1.18 or later
+- Node.js 14 or later
+- npm or yarn
+- Wails CLI (`go install github.com/wailsapp/wails/v2/cmd/wails@latest`)
 
-## Building
+## Development Setup
 
-To build a redistributable, production mode package, use `wails build`.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/my-lite-youtube-music.git
+   cd my-lite-youtube-music
+   ```
+
+2. Install frontend dependencies:
+   ```bash
+   cd frontend
+   npm install
+   cd ..
+   ```
+
+3. Start the development server:
+   ```bash
+   wails dev
+   ```
+
+This will run the application in development mode with hot reload support. You can access the dev tools at http://localhost:34115.
+
+## Building for Production
+
+To create a production build:
+
+```bash
+wails build
+```
+
+The built application will be available in the `build/bin` directory.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [Wails](https://wails.io/) - The framework used for building the desktop application
+- [YouTube Music](https://music.youtube.com/) - Music streaming service
