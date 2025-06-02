@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <!-- <meta content="width=device-width, initial-scale=1.0" name="viewport"/> -->
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Lite Music Player</title>
     <link rel="stylesheet" href="src/style.css"/>
-    <link rel="stylesheet" href="jm.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
@@ -16,45 +14,27 @@
 
         <div class="overlay" id="nav">
             <a href="javascript:void(0)" class="closeBtn" onclick="closeNav()">
-                <span class="material-icons">
-                    clear
-                    </span>
+                <span class="material-icons">clear</span>
             </a>
             <div class="overlay-content">
-                <div class="row"><span class="material-icons">
-                    account_circle
-                    </span>account</div>
-                <div class="row"><span class="material-icons">
-                        settings
-                    </span>settings</div>
                 <div class="row">
-                    <span class="material-icons">
-                            save_alt
-                    </span>downloads</div>
-                <div class="row">
-                    <span class="material-icons">
-                        send
-                        </span>share
+                    <span class="material-icons">save_alt</span>
+                    downloads
                 </div>
             </div>
         </div>
 
 
         <div class="cover">
-            <div class="cover-nav"><span class="material-icons" onclick="openNav()">
-                sort
-                </span>
-                <span class="material-icons">
-                info
-                </span>
+            <div class="cover-nav">
+                <span class="material-icons" onclick="openNav()">sort</span>
             </div>
             <div class="now-playing-banner">
-                <p1><b>one last time</b>- Ariana Grande</p1>
+                <p1><b>Kalimba</b>- anonymous</p1>
             </div>
-            <div class="big-play-button"><span class="material-icons">
-                play_arrow
-                </span>
-            </div>
+            <!-- <div class="big-play-button">
+                <span class="material-icons">play_arrow</span>
+            </div> -->
         </div>
 
         <div class="song-list">
@@ -67,16 +47,7 @@
                 <p>show all</p>
             </div>
             <div class="song-row">
-                <h1>no tears left to cry</h1> <span>5:20</span>
-            </div>
-            <div class="song-row">
-                <h1>imagine</h1> <span>3:20</span>
-            </div>
-            <div class="song-row">
-                <h1>into you</h1> <span>4:12</span>
-            </div>
-            <div class="song-row">
-                <h1>one last time</h1> <span>4:40</span>
+                <h1>Kalimba</h1> <span>--:--</span>
             </div>
             </div>
             <div class="fixed-bottom"><span class="material-icons" id="expand" onclick="hideShow()">
@@ -86,24 +57,24 @@
         <div class="now-playing-wrapper">
         <div class="now-playing-img"></div>
         <div class="now-playing-title">
-            <h>one last time</h>
-            <p>ariana grande</p>
+            <h>Kalimba</h>
+            <p>anonymous</p>
         </div>
         <div class="controls">
-            <span class="material-icons">
+            <!-- <span class="material-icons">
                 skip_previous
-            </span>
+            </span> -->
             <span class="material-icons" onclick="playAudio()">
                 play_circle_filled
             </span>
             <span class="material-icons" onclick="pauseAudio()">
                 pause_circle_filled
             </span>
-            <span class="material-icons">
+            <!-- <span class="material-icons">
                 skip_next
-            </span>
+            </span> -->
             <audio id="song">
-                <source src="https://api.freeplaymusic.com/media/downloadable/files/link_samples/media/volume/tracks/Artful_Spaces_Volume_5/a/s/asteroid_belt.mp3" type="audio/mpeg">
+                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3" type="audio/mpeg">
             </audio>
         </div>
         <div class="song-line"></div>

@@ -17,7 +17,7 @@ searchInput.addEventListener('input', function(e) {
     });
 });
 
-function hideShow() {
+window.hideShow = function hideShow() {
   var cover = document.querySelector(".cover");
   var list = document.querySelector(".song-list");
   var nowPlaying = document.querySelector(".now-playing-wrapper");
@@ -31,18 +31,23 @@ function hideShow() {
     nowPlaying.style.visibility = "visible";
   }
 }
+
 var song = document.getElementById("song");
-function playAudio() {
+
+window.playAudio = function playAudio() {
   song.play();
 }
-function pauseAudio() {
+
+window.pauseAudio = function pauseAudio() {
   song.pause();
 }
+
 var overlay = document.getElementById("nav");
-function openNav(){
+
+window.openNav = function openNav(){
     overlay.style.width = "45%";
 }
-function closeNav() {
+window.closeNav = function closeNav() {
     overlay.style.width = "0%";
 }
 /* inspired by https://dribbble.com/shots/6010742-Music-player */
