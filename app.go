@@ -6,7 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
-	"my-lite-youtube-music/types"
+	"my-lite-youtube-music/pkg/types"
 	"net/http"
 	"os"
 	"strings"

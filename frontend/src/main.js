@@ -5,44 +5,44 @@ import {SearchMusic, GetVideoAudioUrl} from '../wailsjs/go/main/App';
 // Mock data for music
 const mockMusicData = [
   {
-    ID: "dQw4w9WgXcQ",
-    Title: "Rick Astley - Never Gonna Give You Up",
-    Thumbnail: "https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg",
-    Author: "Rick Astley",
-    Views: "1234567890",
-    Duration: "3:32"
+    id: "dQw4w9WgXcQ",
+    title: "Rick Astley - Never Gonna Give You Up",
+    thumb: "https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg",
+    author: "Rick Astley",
+    views: "1234567890",
+    duration: "3:32"
   },
   {
-    ID: "JGwWNGJdvx8",
-    Title: "Ed Sheeran - Shape of You",
-    Thumbnail: "https://i.ytimg.com/vi/JGwWNGJdvx8/default.jpg",
-    Author: "Ed Sheeran",
-    Views: "987654321",
-    Duration: "3:53"
+    id: "JGwWNGJdvx8",
+    title: "Ed Sheeran - Shape of You",
+    thumb: "https://i.ytimg.com/vi/JGwWNGJdvx8/default.jpg",
+    author: "Ed Sheeran",
+    views: "987654321",
+    duration: "3:53"
   },
   {
-    ID: "kJQP7kiw5Fk",
-    Title: "Luis Fonsi - Despacito ft. Daddy Yankee",
-    Thumbnail: "https://i.ytimg.com/vi/kJQP7kiw5Fk/default.jpg",
-    Author: "Luis Fonsi",
-    Views: "876543210",
-    Duration: "4:41"
+    id: "kJQP7kiw5Fk",
+    title: "Luis Fonsi - Despacito ft. Daddy Yankee",
+    thumb: "https://i.ytimg.com/vi/kJQP7kiw5Fk/default.jpg",
+    author: "Luis Fonsi",
+    views: "876543210",
+    duration: "4:41"
   },
   {
-    ID: "RgKAFK5djSk",
-    Title: "Wiz Khalifa - See You Again ft. Charlie Puth",
-    Thumbnail: "https://i.ytimg.com/vi/RgKAFK5djSk/default.jpg",
-    Author: "Wiz Khalifa",
-    Views: "765432109",
-    Duration: "3:58"
+    id: "RgKAFK5djSk",
+    title: "Wiz Khalifa - See You Again ft. Charlie Puth",
+    thumb: "https://i.ytimg.com/vi/RgKAFK5djSk/default.jpg",
+    author: "Wiz Khalifa",
+    views: "765432109",
+    duration: "3:58"
   },
   {
-    ID: "9bZkp7q19f0",
-    Title: "PSY - GANGNAM STYLE",
-    Thumbnail: "https://i.ytimg.com/vi/9bZkp7q19f0/default.jpg",
-    Author: "PSY",
-    Views: "654321098",
-    Duration: "4:13"
+    id: "9bZkp7q19f0",
+    title: "PSY - GANGNAM STYLE",
+    thumb: "https://i.ytimg.com/vi/9bZkp7q19f0/default.jpg",
+    author: "PSY",
+    views: "654321098",
+    duration: "4:13"
   }
 ];
 
@@ -52,9 +52,9 @@ mockMusicData.forEach(song => {
   const row = document.createElement('div');
   row.className = 'song-row';
   row.innerHTML = `
-    <h1>${song.Title}</h1> <span>${song.Duration}</span>
+    <h1>${song.title}</h1> <span>${song.duration}</span>
   `;
-  row.setAttribute('data-video-id', song.ID);
+  row.setAttribute('data-video-id', song.id);
   row.addEventListener('click', () => {
     setPlayingSong(song);
   });
@@ -78,7 +78,7 @@ window.handleSearchKeyUp = function handleSearchKeyUp(event) {
 function displaySongs(results) {    
   // Clear existing song rows
   const songsContainer = document.querySelector('.songs-container');
-  songsContainer.removeChild(songsContainer.firstChild);
+  songsContainer.innerHTML = '';
 
   // Add new songs to the list
   results.forEach(song => {
@@ -86,9 +86,9 @@ function displaySongs(results) {
     const row = document.createElement('div');
     row.className = 'song-row';
     row.innerHTML = `
-      <h1>${song.Title}</h1> <span>${song.Duration}</span>
+      <h1>${song.title}</h1> <span>${song.duration}</span>
     `;
-    row.setAttribute('data-video-id', song.ID);
+    row.setAttribute('data-video-id', song.id);
     row.addEventListener('click', () => {
       setPlayingSong(song);
     });
@@ -97,7 +97,7 @@ function displaySongs(results) {
 }
 
 window.setPlayingSong = function setPlayingSong(song) {
-  GetVideoAudioUrl(song.ID).then((result) => {
+  GetVideoAudioUrl(song.id).then((result) => {
     const audio = document.getElementById('song');
     audio.src = result;
 
@@ -105,10 +105,10 @@ window.setPlayingSong = function setPlayingSong(song) {
     const nowPlayingBanner = document.querySelector('.now-playing-banner');
     const nowPlayingTitle = document.querySelector('.now-playing-title');
     const nowPlayingImg = document.querySelector('.now-playing-img');
-    cover.style.backgroundImage = `url(${song.Thumbnail})`;
-    nowPlayingImg.style.backgroundImage = `url(${song.Thumbnail})`;
-    nowPlayingBanner.innerHTML = `<p1><b>${song.Title}</b>- ${song.Author}</p1>`;
-    nowPlayingTitle.innerHTML = `<h>${song.Title}</h> <p>${song.Author}</p>`;
+    cover.style.backgroundImage = `url(${song.thumb})`;
+    nowPlayingImg.style.backgroundImage = `url(${song.thumb})`;
+    nowPlayingBanner.innerHTML = `<p1><b>${song.title}</b>- ${song.author}</p1>`;
+    nowPlayingTitle.innerHTML = `<h>${song.title}</h> <p>${song.author}</p>`;
 
     audio.play();
   }).catch((err) => {
@@ -124,8 +124,13 @@ window.searchMusic = function searchMusic() {
 
   try {
     SearchMusic(searchTerm).then((result) => {
-      const results = searchMockMusic(searchTerm);
-      displaySongs(results);
+      console.log(result);
+      if (result.length < 0) {
+        const results = searchMockMusic(searchTerm);
+        displaySongs(results);
+      } else {
+        displaySongs(result);
+      }
     }).catch((err) => {
       console.log('error searching music 1', err);
     });
